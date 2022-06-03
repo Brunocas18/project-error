@@ -1,0 +1,47 @@
+TICKET_AUDIT.HTML
+
+
+<form action="upload.php" method="POST" enctype="multipart/form-data">
+        <div class="custom-file">
+                <input type="file" name="upload" class="custom-file-input" id="customFileLang" lang="pt">
+                <label class="custom-file-label" for="customFileLang">Anexar novo Ficheiro</label> <br>
+                <input type="submit" value="upload" name="submit">
+	</div>
+</form>
+
+<h6 class="mt-3"> Ficheiros Selecionados </h6>
+
+<?php 
+	require ();
+
+?>
+
+
+-------------------------------------------------------------------------------------------------------------------------
+UPLOAD.PHP
+
+
+<?php
+	$_FILES['upload'];
+	$nomeFicheiro = $_FILES['upload']['name'];
+	$caminhoAtualFicheiro = $_FILES['upload']['??'];			!!FALTA ?
+	$caminhoFinalFicheiro = $_FILES['upload']['files/'.nomeFicheiro];
+	
+	if(move_upload_file($caminhoAtualFicheiro, $caminhoFinalFicheiro)){
+		header("Location: ticket_audit.html");
+
+	}else{
+		echo "upload não carregado!";
+	}
+?>
+
+<?php
+	$folder = "files/";
+	$dir = dir($folder);
+
+	while($file = #dir -> read()){
+		echo "$file" <br>
+
+	}
+
+?>
